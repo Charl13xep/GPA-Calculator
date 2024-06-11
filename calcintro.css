@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #191d28;
+}
+nav{
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 30px 10%;
+    
+}
+.navigation{
+    list-style: none;
+    
+}
+
+.navigation li{
+    display: inline-block;
+    padding: 0px 20px;
+    
+}
+.navigation li a {
+    color: white;
+    text-decoration: none;
+    transition: all o.3s ease 0s;
+}
+.navigation li a :hover {
+    color: rgb(7, 82, 116);
+    
+}
+button{
+    margin-left: 20px;
+    color: white;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all o.3s ease 0s;
+}
+form{
+    width: 100%;
+}
+form {
+    display: list-item;
+
+}
+form div{
+   color: antiquewhite;
+   padding: 20px;
+   
+}
+label{
+    margin-right: 10%;
+}
+
+select: focus{
+    min: width 150px;
+    width: auto;
+}
+
+#r{
+    
+    justify-content: left;
+    
+    
+}
