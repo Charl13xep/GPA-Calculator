@@ -28,7 +28,7 @@ nav{
     text-decoration: none;
     transition: all o.3s ease 0s;
 }
-.navigation li a :hover {
+ul li a:hover {
     color: rgb(7, 82, 116);
     
 }
@@ -58,9 +58,8 @@ label{
     margin-right: 10%;
 }
 
-select: focus{
-    min: width 150px;
-    width: auto;
+select{
+    width: 100px;
 }
 
 #r{
@@ -68,4 +67,7 @@ select: focus{
     justify-content: left;
     
     
+}
+button:hover{
+    background-color: rgba(0, 136, 169, 0.4);
 }

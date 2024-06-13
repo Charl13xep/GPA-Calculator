@@ -33,8 +33,9 @@ nav{
     text-decoration: none;
 }
 
-ul li a:hover{
-    color: aqua;
+ul li a:hover {
+    color: rgb(7, 82, 116);
+    
 }
 button{
     margin-left: 20px;
@@ -44,8 +45,23 @@ button{
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all o.3s ease 0s;
+   
 }
 button:hover{
     background-color: rgba(0, 136, 169, 0.4);
+}
+form{
+    width: 100%;
+}
+form {
+    display: list-item;
+
+}
+form div{
+   color: antiquewhite;
+   padding: 20px;
+   
+}
+label{
+    margin-right: 10%;
 }
