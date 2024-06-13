@@ -4,34 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="calcintro.css" />
+    
     <title>Document</title>
   </head>
-  <body>
+  <body id = "intro">
     <section class="header">
-        <nav>
-          <div>
-            <ul class="navigation">
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Calculator</a></li>
-              <li><a href="">Reviews</a></li>
-            </ul>
-          </div>
-          <a id="con" href="#"><button>Contact</button></a>
-        </nav>
-      </section>
+      <nav>
+        <div>
+          <ul class="navigation">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="calcintro.html">Calculator</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <a id="con" href="#"><button>Contact</button></a>
+      </nav>
+    </section>
     <div >
-        <form action="">
+        <form  action="" id = "form1">
             <div>
                 <label for="grading-system">Grading System</label>
             <select name="grading_system" id="">
-              <option value="1"></option>
-              <option value="2"></option>
+              <option value="ABCDEF"></option>
+              <option value="ABCDEF"></option>
             </select>
             </div>
             <div>
-                <label for="units">No of units</label>
-                <input type="number" name="units" />
+                <label  for="units">No of units</label>
+                <input id = "units" type="number" name="units" />
             </div>
             <div>
                 <label for="institution">Name of institution</label>
@@ -39,7 +40,7 @@
             </div>
             
       
-           <div id = "r"><input  type="submit" name="continue" /></div>
+           <input  type="submit" name="continue" /></div>
            
             
 
@@ -47,4 +48,6 @@
    
     </form>
   </body>
+
+  <script src = "calculator.js"></script>
 </html>
