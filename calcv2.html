@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link href="calcv2.css" rel="stylesheet" type="text/css">
+    <script src="calcv2.js" defer></script>
+</head>
+<body>
+    <h1 id="main-heading">GPA Calculator</h1>
+    <button id="switchh" onclick="returnHome()">Return</button>
+    <div id="gpaBox">
+        <table>
+            <tr>
+                <th>Subjects</th>
+                <th>Credit Hours</th>
+                <th>Marks</th>
+                <th>Grade</th>
+                <th>GPA</th>
+            </tr>
+            <tr>
+                <td>Subject 1</td>
+                <td>
+                    <select class="select" id="hours1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="inputMarks" id="inputm1" />
+                </td>
+                <td>
+                    <h3 id="grade1">null</h3>
+                </td>
+                <td>
+                    <h3 id="gpaOfSbj1" class="gpaLabel">null</h3>
+                </td>
+            </tr>
+        </table>
+        <div class="ResultDiv">
+            <h2 style="text-align:center">Set 4 GPA marks</h2>
+            <input id="setgpa" class="inputMarks" style="margin-left:80px; width:200px" type="text" placeholder="eg. 90 or 85" />
+            <div>
+                <h1 style="margin-left:10px" id="showGPA">GPA :</h1>
+            </div>
+            <div>
+                <h1 style="margin-left:10px" id="showPercentage">Percentage :</h1>
+            </div>
+            <div id="CalculateBtn" onclick="calculate()">Calculate</div>
+        </div>
+    </div>
+    <button id="addSubjectBtn" onclick="addSubject()">Add Subject</button>
+</body>
+</html>
