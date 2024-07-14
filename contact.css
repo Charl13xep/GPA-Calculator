@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #191d28;
+    background-color: lightcyan;
     padding-bottom: 100px;
   }
   nav{
@@ -23,7 +23,7 @@ body {
     
 }
 .navigation li a {
-    color: white;
+    color: lightskyblue;
     text-decoration: none;
 
 }
@@ -54,8 +54,8 @@ ul li a:hover {
     text-align: center;
     margin: 0 auto;
     padding: 40px 0;
-    font: 300 60px 'Oswald', sans-serif;
-    color: #fff;
+    font: 300 60px 'Oswald', Arial;
+    color: aqua;
     text-transform: uppercase;
     letter-spacing: 6px;
   }
@@ -82,12 +82,12 @@ ul li a:hover {
   .form-control, 
   textarea {
     max-width: 400px;
-    background-color: #191d28;
-    color: #fff;
+    background-color: lightcyan;
+    color: black;
     letter-spacing: 1px;
     border: none;
     outline: none;
-    border: 2px solid rgba(255,255,255, 0.2);
+    border: 2px solid lightblue;
   }
 
 .col-sm-12{
@@ -99,16 +99,19 @@ ul li a:hover {
     margin-top: 15px;
     height: 34px;
     width: 400px;
+    background-color: lightcyan;
+    border: 2px solid lightblue;
     overflow: hidden;
     transition: all .2s ease-in-out;
   }
-  
+
   .alt-send-button {
     width: 400px;
     height: 34px;
+    color: aqua;
     transition: all .2s ease-in-out;
   }
-  
+
   .send-text {
     display: block;
     margin-top: 10px;
@@ -134,13 +137,13 @@ ul li a:hover {
   
   .list-item {
     line-height: 4;
-    color: #aaa;
+    color: black;
   }
   
   .contact-text {
     font: 300 18px 'Lato', sans-serif;
     letter-spacing: 1.9px;
-    color: #bbb;
+    color: black;
   }
   
   .place {
@@ -153,17 +156,17 @@ ul li a:hover {
   
   .gmail {
     margin-left: 53px;
-    background-color: #191d28;
+    background-color: lightcyan;
   }
   
   .contact-text a {
-    color: #bbb;
+    color: black;
     text-decoration: none;
     transition-duration: 0.2s;
   }
   
   .contact-text a:hover {
-    color: #fff;
+    color: rgba(0, 136, 169, 0.4;
     text-decoration: none;
   }
   
@@ -179,7 +182,7 @@ ul li a:hover {
   }
   
   .social-media-list li a {
-    color: #fff;
+    color: aqua;
   }
   
   .social-media-list li {
@@ -191,7 +194,7 @@ ul li a:hover {
     line-height: 60px;
     border-radius: 50%;
     color: #fff;
-    background-color: rgb(27,27,27);
+    background-color: lightcyan;
     cursor: pointer; 
     transition: all .2s ease-in-out;
   }
@@ -221,7 +224,7 @@ ul li a:hover {
   }
   
   .social-media-list li:hover a {
-    color: #000;
+    color: lightcyan;
   }
   
   .copyright {
