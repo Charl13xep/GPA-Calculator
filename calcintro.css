@@ -3,7 +3,10 @@
     padding: 0;
 }
 body{
-    background-color: #191d28;
+    background-color: lightcyan;
+}
+header{
+    
 }
 nav{
 
@@ -15,16 +18,21 @@ nav{
 }
 .navigation{
     list-style: none;
+   
     
 }
 
 .navigation li{
     display: inline-block;
     padding: 0px 20px;
+    margin-left: 20px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 30px;
     
 }
 .navigation li a {
-    color: white;
+    color: lightskyblue;
     text-decoration: none;
     transition: all o.3s ease 0s;
 }
@@ -47,10 +55,11 @@ form{
 }
 form {
     display: list-item;
+    
 
 }
 form div{
-   color: antiquewhite;
+   color: black;
    padding: 20px;
    
 }

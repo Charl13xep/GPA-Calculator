@@ -4,7 +4,7 @@
     font-family: "Roboto", sans-serif;
 }
 body{
-    background-color: #191d28;
+    background-color: lightcyan;
 }
 
 nav{
@@ -26,7 +26,7 @@ nav{
     
 }
 .navigation li a {
-    color: white;
+    color: lightskyblue;
     text-decoration: none;
 
 }
@@ -48,7 +48,7 @@ button:hover{
 }
 
 .description p{
-    color: antiquewhite;
+    color: black;
     padding-bottom: 40px;
     
 }
