@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="calcintro.css" />
     
+<!-- Add this in the <head> section of your HTML -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <script src="https://gpa-calculator-60283-default-rtdb.firebaseio.com"></script>
+
     <title>Document</title>
   </head>
   <body id = "intro">
@@ -22,33 +27,32 @@
         </div>
       </nav>
     </section>
-    <div >
-        <form  action="" id = "form1">
-            <div>
-                <label for="grading-system">Grading System</label>
-            <select name="grading_system" id="">
-              <option value="ABCDEF"></option>
-              <option value="ABCDEF"></option>
-            </select>
-            </div>
-            <div>
-                <label  for="units">Number of units</label>
-                <input id = "units" type="number" name="units" />
-            </div>
-            <div>
-                <label for="institution">Name of institution</label>
-                <input type="text" name="Name of institution" />
-            </div>
-            
-      
-           <input  type="submit" name="continue" /></div>
-           
-            
-
-    </div>
-   
+    <form action="calcFinal.html" method="GET"> <!-- Assuming method GET for simplicity -->
+      <div>
+          <label for="year">Year</label>
+          <input id="year" type="text" name="year" />
+      </div>
+      <div>
+          <label for="semester">Semester</label>
+          <input id="semester" type="text" name="semester" />
+      </div>
+      <div>
+          <label for="units">Number of units</label>
+          <input id="units" type="number" name="units" />
+      </div>
+      <div>
+          <label for="institution">Name of institution</label>
+          <input type="text" name="institution" /> <!-- Corrected the name attribute -->
+      </div>
+      <div>
+          <label for="gpa4">Set GPA 4.0 Percent</label>
+          <input id="gpa4" type="number" name="gpa4" step="0.01" /> <!-- Added step for decimal values -->
+      </div>
+    
+        <input type="submit" name="continue" /></div>
+    
     </form>
   </body>
 
-  <script src = "calculator.js"></script>
+  <script src = "calcintro.js"></script>
 </html>
