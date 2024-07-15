@@ -166,14 +166,14 @@ ul li a:hover {
   }
   
   .contact-text a:hover {
-    color: rgba(0, 136, 169, 0.4;
+    color: rgba(0, 136, 169, 0.4);
     text-decoration: none;
   }
   
   
   /* Social Media Icons */
   .social-media-list {
-    position: relative;
+    position:static;
     font-size: 22px;
     text-align: center;
     width: 100%;
