@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript GPA Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Kanit:wght@600&display=swap');
+        body {
+            background: rgb(0, 32, 100);
+            font-family: 'Raleway', sans-serif;
+        }
+        h1 {                
+            color:white;
+            font-family: 'Kanit', sans-serif;
+            text-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align:center;
+            margin-top:50px;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            margin-top:30px;  
+        }              
+        #table-container {
+            position: relative;
+            background: #fff3f0;
+            color: #333;
+            font-size: 14px;
+            padding: 10px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 250px;
+            margin-top: 30px;
+        }
+        #input-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        #table {
+            width:100%;
+            border-collapse:collapse;
+        }                      
+        #table th, #table td {  
+            padding: 8px;
+            text-align:center;                
+        }                     
+        #table th {             
+            background-color: rgb(0,32,100);
+            color:white;
+        }
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #table tr:hover {
+            background-color: #ddd;
+        }
+        #add-button, #save-button {
+            margin: 10px;
+        }
+        #overall-gpa, #weighted-gpa {
+            color: black;
+            background: #fff;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+            width: 210px;
+            height: 55px;
+            position: absolute;
+            top: 18%; /* Adjusted for #weighted-gpa */
+            left: 12%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            font-size: 21px;
+        }
+        #weighted-gpa {
+            top: 35%; /* Specific to #weighted-gpa */
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">GPA Calculator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calcFinal.html">GPA Calculator</a>
+                    </li>
+                    <!-- Add other navigation links here -->
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <h1>My GPA Spreadsheet</h1>
+    <div id='container'>
+        <button id='add-button' class='btn btn-light'>Add Entry</button>
+        <button id='save-button' class='btn btn-light'>Save Changes</button>
+    </div>
+    <div id='input-container'>
+        <input id='course_name' class='form-control' placeholder='Course Name...' style='width: 200px; margin-right: 10px;'>
+        <input id='credit_hours' class='form-control' placeholder='Credit Hours' style='width: 200px; margin-right: 10px;'>
+        <input id='grade_earned' class='form-control' placeholder='Grade Earned' style='width: 200px; margin-right: 10px;'>
+    </div>
+    <div id='table-container'>
+        <table id='table'>
+            <tr>
+                <th>Course Name</th>
+                <th>Credit Hours</th>
+                <th>Grade Earned</th>
+                <th>Letter Grade</th>
+                <th>Points Earned</th>
+                <th>GPA Points</th>
+                <th></th>
+            </tr>
+            <!-- Table rows will be added here -->
+        </table>
+    </div>
+    <div id='overall-gpa'>Overall GPA: 0.00</div>
+    <input id="weighted-gpa" class="form-control" placeholder="Set 4.0 GPA Mark eg 75" style="width: 210px; height: 55px; position: absolute; top: 35%; left: 12%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; border-radius: 5px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); font-size: 16px;">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize variables
+            const addButton = document.querySelector('#add-button');
+            const saveButton = document.querySelector('#save-button');
+            const table = document.querySelector('#table');
+            const GPA = document.querySelector('#overall-gpa');
+            let idx = 0;
+            let records = [];
+            let totalHours = 0;
+            let totalPoints = 0;
+
+            // Load records from local storage if available
+            const storedRecords = localStorage.getItem('gpaRecords');
+            if (storedRecords) {
+                records = JSON.parse(storedRecords);
+                populateTable();
+                updateGPA();
+            }
+
+            // Add button event listener
+            addButton.addEventListener('click', () => {
+                // Input values
+                const courseName = document.querySelector('#course_name').value;
+                const creditHours = document.querySelector('#credit_hours').value;
+                const gradeEarned = parseFloat(document.querySelector('#grade_earned').value);
+                // Read the gpt4 value from the new input field
+                const gpa4 = parseFloat(document.querySelector('#weighted-gpa').value) || 90; // Default to 90 if input is invalid
+                let letterGrade;
+                let pointsEarned;
+
+                // Validation and calculation
+                if (isNaN(gradeEarned) || gradeEarned > 100 || gradeEarned < 0) {
+                    alert('Grade Earned must be within 0-100');
+                    return;
+                }
+                if (!courseName.trim() || !isNaN(courseName.trim())) {
+                    alert('That must be a class name!');
+                    return;
+                }
+                if (isNaN(creditHours) || creditHours < 0) {
+                    alert('Credit Hours must be a number greater than 0');
+                    return;
+                }
+
+                // Determine letter grade and points earned using the logic from code block 1
+// Assuming 90 is the mark for a 4.0 GPA
+if (gradeEarned >= gpa4) {
+    letterGrade = 'A';
+    pointsEarned = 4.0;
+} else if (gradeEarned >= gpa4 - 5) {
+    letterGrade = 'A-';
+    pointsEarned = 3.7;
+} else if (gradeEarned >= gpa4 - 10) {
+    letterGrade = 'B';
+    pointsEarned = 3.3;
+} else if (gradeEarned >= gpa4 - 15) {
+    letterGrade = 'B-';
+    pointsEarned = 3.0;
+} else if (gradeEarned >= gpa4 - 20) {
+    letterGrade = 'C';
+    pointsEarned = 2.7;
+} else if (gradeEarned >= gpa4 - 25) {
+    letterGrade = 'C-';
+    pointsEarned = 2.3;
+} else if (gradeEarned >= gpa4 - 30) {
+    letterGrade = 'D';
+    pointsEarned = 2.0;
+} else if (gradeEarned >= gpa4 - 35) {
+    letterGrade = 'D-';
+    pointsEarned = 1.7;
+} else if (gradeEarned >= gpa4 - 40) {
+    letterGrade = 'E';
+    pointsEarned = 1.3;
+} else if (gradeEarned >= gpa4 - 45) {
+    letterGrade = 'E-';
+    pointsEarned = 1.0;
+} else {
+    letterGrade = 'F';
+    pointsEarned = 0.0;
+}
+
+                // Create new record
+                const rowId = `row-${idx}`;
+                const newRecord = {
+                    rowId,
+                    courseName,
+                    creditHours,
+                    gradeEarned,
+                    letterGrade,
+                    pointsEarned: pointsEarned,
+                    gpaPoints: parseFloat((pointsEarned * creditHours).toFixed(1)),
+                };
+                records.push(newRecord);
+                appendRecordToTable(newRecord);
+                updateGPA();
+                idx++;
+            });
+
+            // Populate table with records
+            function populateTable() {
+                records.forEach(record => appendRecordToTable(record));
+            }
+
+            // Append record to table
+            function appendRecordToTable(record) {
+                const { rowId, courseName, creditHours, gradeEarned, letterGrade, pointsEarned, gpaPoints } = record;
+                const row = document.createElement('tr');
+                row.id = rowId;
+                row.appendChild(createTableCell(courseName));
+                row.appendChild(createTableCell(creditHours));
+                row.appendChild(createTableCell(gradeEarned));
+                row.appendChild(createTableCell(letterGrade));
+                row.appendChild(createTableCell(pointsEarned));
+                row.appendChild(createTableCell(gpaPoints));
+                row.appendChild(createDeleteButtonCell(rowId));
+                table.appendChild(row);
+            }
+
+            // Create table cell
+            function createTableCell(text) {
+                const cell = document.createElement('td');
+                cell.innerText = text;
+                return cell;
+            }
+
+            // Create delete button cell
+            function createDeleteButtonCell(rowId) {
+                const cell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'btn btn-primary btn-sm';
+                deleteButton.innerText = 'Delete';
+                deleteButton.addEventListener('click', () => deleteRecord(rowId));
+                cell.appendChild(deleteButton);
+                return cell;
+            }
+
+            // Delete a record
+            function deleteRecord(rowId) {
+                const rowIndex = records.findIndex(record => record.rowId === rowId);
+                if (rowIndex !== -1) {
+                    table.removeChild(document.querySelector(`#${rowId}`));
+                    records.splice(rowIndex, 1);
+                    updateGPA();
+                }
+            }
+
+            // Update the overall GPA display
+            function updateGPA() {
+                totalHours = records.reduce((acc, record) => acc + parseInt(record.creditHours), 0);
+                totalPoints = records.reduce((acc, record) => acc + parseInt(record.gpaPoints), 0);
+                const overallGPA = (totalPoints / totalHours).toFixed(2);
+                GPA.innerText = `Overall GPA: ${overallGPA}`;
+            }
+
+            // Save button event listener
+            saveButton.addEventListener('click', () => {
+                localStorage.setItem('gpaRecords', JSON.stringify(records));
+                alert('Changes saved successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
