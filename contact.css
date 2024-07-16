@@ -10,6 +10,7 @@ body {
     justify-content: right;
     align-items: center;
     padding: 30px 10%;
+    font-family: 'Roboto', sans-serif;
     
 }
 .navigation{
@@ -54,7 +55,7 @@ ul li a:hover {
     text-align: center;
     margin: 0 auto;
     padding: 40px 0;
-    font: 300 60px 'Oswald', Arial;
+    font: 300 60px  'Roboto', sans-serif;;
     color: aqua;
     text-transform: uppercase;
     letter-spacing: 6px;
