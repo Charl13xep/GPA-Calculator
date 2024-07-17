@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #007bff; /* Light blue border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f0f8ff; /* Light blue background */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .website {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .details div {
+    flex: 1;
+    margin-right: 10px; /* Add space between input fields */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .grades-table th,
+  .grades-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .grades-table th {
+    background-color: #007bff; /* Light blue header */
+    color: white;
+  }
+  
+  .footer {
+    text-align: right;
+    font-size: 12px;
+  }
+  
