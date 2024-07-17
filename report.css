@@ -1,14 +1,15 @@
 body {
     font-family: sans-serif;
+    background-color: lightcyan;
   }
   
   .container {
     width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 2px solid #007bff; /* Light blue border */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f0f8ff; /* Light blue background */
+    border: 2px solid aqua; 
+    border-radius: 10px; 
+    background-color: lightcyan; 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
   }
   
@@ -25,13 +26,13 @@ body {
   
   .details {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-evenly;
     margin-bottom: 15px;
   }
   
   .details div {
-    flex: 1;
-    margin-right: 10px; /* Add space between input fields */
+    flex: 0.4;
+    margin-right: 10px; 
   }
   
   label {
@@ -60,12 +61,19 @@ body {
   }
   
   .grades-table th {
-    background-color: #007bff; /* Light blue header */
-    color: white;
+    background-color: aqua; 
+    color: lightcyan;
   }
   
   .footer {
     text-align: right;
     font-size: 12px;
+    color: gray;
+    padding-top: 10px;
+  }
+
+  .footer2 {
+    align-items: left;
+    background-color: lightcyan;
   }
   
