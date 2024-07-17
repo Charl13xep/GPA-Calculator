@@ -2,14 +2,13 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"poppins",sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     background-color: lightcyan;
-    background:linear-gradient(to right,#e2e2e2,#c9d6ff);
 }
 .container{
-    background:#fff;
+    background:lightcyan;
     width:450px;
     padding:1.5rem;
     margin:50px auto;
@@ -47,7 +46,7 @@ input{
 input:focus{
     background-color: transparent;
     outline:transparent;
-    border-bottom:2px solid hsl(327,90%,28%);
+    border-bottom:2px solid aqua;
 }
 input::placeholder{
     color:transparent;
@@ -62,7 +61,7 @@ label{
 }
 input:focus~label,input:not(:placeholder-shown)~label{
     top:-3em;
-    color:hsl(327,90%,28%);
+    color:rgb(7, 82, 116);
     font-size:15px;
 }
 .recover{
@@ -73,10 +72,10 @@ input:focus~label,input:not(:placeholder-shown)~label{
 }
 .recover a{
     text-decoration:none;
-    color:rgb(125,125,235);
+    color:aqua;
 }
 .recover a:hover{
-    color:blue;
+    color:rgb(7, 82, 116);
     text-decoration:underline;
 }
 .btn{
@@ -86,13 +85,14 @@ input:focus~label,input:not(:placeholder-shown)~label{
     outline:none;
     border:none;
     width:100%;
-    background:rgb(125,125,235);
+    background:aqua;
     color:white;
     cursor:pointer;
     transition:0.9s;
 }
 .btn:hover{
-    background:#07001f;
+    background:rgb(7, 82, 116);
+    color:white;
 }
 .or{
     font-size:1.1rem;
@@ -103,7 +103,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
     text-align:center;
 }
 .icons i{
-    color:rgb(125,125,235);
+    color:aqua;
     padding:0.8rem 1.5rem;
     border-radius:10px;
     font-size:1.5rem;
@@ -113,9 +113,9 @@ input:focus~label,input:not(:placeholder-shown)~label{
     transition:1s;
 }
 .icons i:hover{
-    background:#07001f;
+    background:rgb(7, 82, 116);
     font-size:1.6rem;
-    border:2px solid rgb(125,125,235);
+    border:2px solid aqua;
 }
 .links{
     display:flex;
@@ -125,7 +125,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
     font-weight:bold;
 }
 button{
-    color:rgb(125,125,235);
+    color:aqua;
     border:none;
     background-color:transparent;
     font-size:1rem;
@@ -133,10 +133,10 @@ button{
 }
 button:hover{
     text-decoration:underline;
-    color:blue;
+    color:rgb(7, 82, 116);
 }
 .messageDiv{
-    background-color:hsl(327,90%,28%);
+    background-color:aqua;
     color:white;
     padding:10px 20px;
     margin:10px;
