@@ -52,7 +52,7 @@ button:hover{
     padding-bottom: 40px;
     
 }
-.header .btn2{
+.header {
     justify-content: left;
 }
 .description {
@@ -61,7 +61,7 @@ button:hover{
 }
 
 .instructions{
-    display: flex;
+    display: contents;
     justify-content: space-between;
     position: relative;
     
