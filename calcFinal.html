@@ -203,7 +203,19 @@ if (gradeEarned >= gpa4) {
                 const overallGPA = (totalPoints / totalHours).toFixed(2);
                 GPA.innerText = `Overall GPA: ${overallGPA}`;
             }
+//script to handle the save operation:
+            document.getElementById('save-button').addEventListener('click', function() {
+                const reportData = {
+                    name: document.getElementById('name').value,
+                    semester: document.getElementById('semester').value,
+                    finalGrade: document.getElementById('final-grade').value,
+                    averageGpa: document.getElementById('average-gpa').value,
+                    // Add other fields as necessary
+                };
 
+                localStorage.setItem('reportCardData', JSON.stringify(reportData));
+                alert('Record saved successfully!');
+            });
             // Save button event listener
             saveButton.addEventListener('click', () => {
                 localStorage.setItem('gpaRecords', JSON.stringify(records));

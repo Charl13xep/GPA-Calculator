@@ -50,6 +50,7 @@ const analytics = getAnalytics(app);
         const docRef=doc(db, "users", user.uid);
         setDoc(docRef,userData)
         .then(()=>{
+            localStorage.setItem('userDetails', JSON.stringify(userData));
             window.location.href='login.html';
         })
         .catch((error)=>{
@@ -80,7 +81,19 @@ const analytics = getAnalytics(app);
         showMessage('login is successful', 'signInMessage');
         const user=userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href='index.html';
+        const db = getFirestore();
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef).then((docSnap) => {
+            if (docSnap.exists()) {
+                const userData = docSnap.data();
+                localStorage.setItem('userDetails', JSON.stringify(userData));
+                window.location.href='index.html'; // Or wherever you want to redirect after login
+            } else {
+                console.log("No such document!");
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+        });
     })
     .catch((error)=>{
         const errorCode=error.code;
