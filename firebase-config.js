@@ -8,7 +8,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebas
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD1JMW5BK_DHR_Hi2iLZsa6Xt0dmnKZ9TM",
+    apiKey: "",
     authDomain: "gpa-calculator-60283.firebaseapp.com",
     projectId: "gpa-calculator-60283",
     storageBucket: "gpa-calculator-60283.appspot.com",
